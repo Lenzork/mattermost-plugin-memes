@@ -78,7 +78,7 @@ func (m *Metadata) TextSlots(bounds image.Rectangle) (slots []*meme.TextSlot) {
 			}
 			slots = append(slots, textSlot)
 		}
-		return
+		return slots
 	}
 
 	padding := bounds.Dy() / 20

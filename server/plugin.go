@@ -87,7 +87,7 @@ func serveTemplateJPEG(w http.ResponseWriter, r *http.Request) {
 
 	query := r.URL.Query()
 	text := query["text"]
-	
+
 	// Backwards compatibility: if no text parameters, check for single 't' parameter
 	if len(text) == 0 {
 		if t := query.Get("t"); t != "" {
@@ -157,11 +157,11 @@ func getAvailableMemes() []string {
 	return availableMemes
 }
 
-func (p *Plugin) ServeHTTP(c *plugin.Context, w http.ResponseWriter, r *http.Request) {
+func (p *Plugin) ServeHTTP(_ *plugin.Context, w http.ResponseWriter, r *http.Request) {
 	p.router.ServeHTTP(w, r)
 }
 
-func (p *Plugin) ExecuteCommand(c *plugin.Context, args *model.CommandArgs) (*model.CommandResponse, *model.AppError) {
+func (p *Plugin) ExecuteCommand(_ *plugin.Context, args *model.CommandArgs) (*model.CommandResponse, *model.AppError) {
 	siteURL := p.GetSiteURL()
 
 	input := strings.TrimSpace(strings.TrimPrefix(args.Command, "/meme"))
