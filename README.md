@@ -17,6 +17,21 @@ This plugin will create a slash command that you can use to create memes!
 
 For more information like available memes or command syntax type `/meme ` and press enter.
 
+## Direct API Usage
+
+You can also access the meme generation endpoint directly via HTTP. The endpoint accepts multiple `text` query parameters to fill different text slots in the meme template:
+
+```
+/plugins/memes/templates/{template-name}.jpg?text=Top%20Text&text=Bottom%20Text
+```
+
+For example:
+```
+/plugins/memes/templates/brace-yourselves.jpg?text=Brace%20Yourself&text=Memes%20Are%20Coming
+```
+
+For backwards compatibility, a single `t` parameter is also supported when no `text` parameters are provided.
+
 ## Installation
 
 1. Go to https://github.com/mattermost/mattermost-plugin-memes/releases/latest to download the latest release file in zip or tar.gz format.
