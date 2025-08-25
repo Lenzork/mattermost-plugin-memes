@@ -9,3 +9,6 @@ var manifest = struct {
 	ID:      "memes",
 	Version: "1.5.0",
 }
+
+// Prevent unused variable warning
+var _ = manifest
