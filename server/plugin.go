@@ -87,6 +87,13 @@ func serveTemplateJPEG(w http.ResponseWriter, r *http.Request) {
 
 	query := r.URL.Query()
 	text := query["text"]
+	
+	// Backwards compatibility: if no text parameters, check for single 't' parameter
+	if len(text) == 0 {
+		if t := query.Get("t"); t != "" {
+			text = []string{t}
+		}
+	}
 
 	img, err := template.Render(text)
 	if err != nil {
